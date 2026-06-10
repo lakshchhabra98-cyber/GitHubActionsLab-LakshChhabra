@@ -5,24 +5,24 @@ back to main
 
 
 
-GitHub Actions Lab - Laksh Chhabra
+# GitHub Actions Lab - Laksh Chhabra
 
-This repository contains two GitHub Actions workflows.
+This is my lab for learning GitHub Actions. It has two workflows.
 
-Workflow 1: Dependent Jobs (dependent-jobs.yml)
-Runs three jobs — 'build, test, deploy' in order using the `needs` key.
-Each job waits for the previous one to finish. Triggered on push to main.
+Workflow 1 - Dependent Jobs (dependent-jobs.yml)
+This workflow has three jobs: build, test, and deploy. They run one after
+another in order using the `needs` key. It runs when I push to the main branch.
 
-Workflow 2: Multi-Platform Testing (multi-platform.yml)
-Runs three independent jobs in parallel on Ubuntu, Windows, and macOS.
-Each job checks out code, prints OS info, runs an OS-specific command,
-and creates and displays a file. Triggered on pull requests to main.
+Workflow 2 - Multi-Platform Testing (multi-platform.yml)
+This workflow has three jobs that run at the same time on Ubuntu, Windows,
+and macOS. Each job checks out the code, prints the OS info, runs a command,
+and makes a file and shows what's inside it. It runs when I open a pull request.
 
 Key Concepts
-- needs: Makes jobs run in a set order (used in Workflow 1). Without it, jobs run in parallel (Workflow 2).
-- runs-on: Sets the OS a job runs on (ubuntu-latest, windows-latest, macos-latest).
-- env: Defines environment variables for use in a workflow, job, or step.
+needs: Used to make jobs run in order. If you don't use it, the jobs run at the same time.
+runs-on: Tells the job which operating system to use (like ubuntu-latest or windows-latest).
+env: Used to set environment variables in the workflow.
 
-Challenges Faced
-- The multi-platform workflow only runs on pull requests, not on commits to main. I fixed this by opening a pull request to trigger it.
-- Windows uses different commands than Linux/macOS (`systeminfo`/`type` vs `uname`/`cat`), so each job needed the right commands.
+Challenges I Faced
+At first my multi-platform workflow didn't run. I learned it only runs on a pull request, not when you push to main. So I made a branch and opened a pull request and then it worked.
+Windows uses different commands than Mac and Linux, so I had to use systeminfo and type for Windows instead of uname and cat.
