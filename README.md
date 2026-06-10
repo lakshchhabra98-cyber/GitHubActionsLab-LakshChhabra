@@ -4,9 +4,6 @@ ICE-5
 back to main
 
 
-
-# GitHub Actions Lab - Laksh Chhabra
-
 This is my lab for learning GitHub Actions. It has two workflows.
 
 Workflow 1 - Dependent Jobs (dependent-jobs.yml)
